@@ -71,11 +71,10 @@ let value = searchBar.value
 searchBar.addEventListener("keydown", (e) => {
     value = e.target.value
     input = value
-    console.log(input)
 })
 
 
-
+const imageDisplay = document.createElement("img");
 
 function geoLocation(){
     let status = document.querySelector('#Status');
@@ -95,7 +94,7 @@ function geoLocation(){
         .then((data) => {
         console.log(data)
         photoArray = data.photos.photo.map(photo => constructImageURL(photo))
-        let imageDisplay = document.createElement("img");
+        
         flipBook.append(imageDisplay);
         imageDisplay.src = photoArray[0];
         let index = 0
@@ -106,7 +105,7 @@ function geoLocation(){
                 index +=1 
             }
             imageDisplay.src = photoArray[index]
-        },2000)
+        },3000)
         })
     }
     
